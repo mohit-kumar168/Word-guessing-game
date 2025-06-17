@@ -4,6 +4,7 @@ import { languages } from './languages'
 import { useState } from 'react'
 import { clsx } from "clsx"
 import { getRandomWord } from './words'
+import ReactConfetti from 'react-confetti'
 
 function App() {
   const [currentWord, setCurrentWord] = useState(() => getRandomWord())
@@ -81,7 +82,7 @@ function App() {
       </button>
     )
   })
-  
+
   const handleNewGame = () =>  {
     setCurrentWord(getRandomWord())
     setGuessedLetters([])
@@ -89,6 +90,7 @@ function App() {
 
   return (
     <div className='flex flex-col items-center justify-center'>
+      {isWinner && <ReactConfetti />}
       <Header />
 
       {isGameOver && (
