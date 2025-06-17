@@ -89,8 +89,8 @@ function App() {
   }
 
   return (
-    <div className='flex flex-col items-center justify-center'>
-      {isWinner && <ReactConfetti />}
+    <div className='relative min-h-screen flex flex-col items-center justify-center'>
+      {isWinner && <ReactConfetti style={{ zIndex: 9999 }} />}
       <Header />
 
       {isGameOver && (
